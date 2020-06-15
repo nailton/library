@@ -13,12 +13,13 @@ class BooksController extends Controller {
         Book::create($data);
     }
 
-    public function update(Book $book) {
+    public function update($id) {
         $data = request()->validate([
             'title'  => 'required',
             'author' => 'required',
         ]);
 
+        $book = Book::findOrFail($id);
         $book->update($data);
     }
 }
