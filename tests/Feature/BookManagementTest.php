@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
 
-class BookReservationTest extends TestCase {
+class BookManagementTest extends TestCase {
     use WithoutMiddleware;
     use RefreshDatabase;
 
@@ -50,7 +50,6 @@ class BookReservationTest extends TestCase {
 
     /** @test */
     public function a_book_can_be_update() {
-        // $this->withoutExceptionHandling();
 
         $this->post('/books', [
             'title'  => 'Cool Title',
@@ -71,7 +70,6 @@ class BookReservationTest extends TestCase {
 
     /** @test */
     public function a_book_can_be_deleted() {
-        $this->withoutExceptionHandling();
 
         $this->post('/books', [
             'title'  => 'Cool Title',
