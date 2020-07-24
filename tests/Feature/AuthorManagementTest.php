@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Author;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\Concerns\withoutExceptionHandling;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
@@ -15,7 +14,6 @@ class AuthorManagementTest extends TestCase {
 
     /** @test */
     public function an_author_can_be_created() {
-        $this->withoutExceptionHandling();
 
         $this->post('/author', [
             'name' => 'Author Name',
