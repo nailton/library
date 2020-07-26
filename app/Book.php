@@ -24,6 +24,10 @@ class Book extends Model {
             ->whereNull('checked_in_at')
             ->first();
 
+        if (is_null($reservation)) {
+            throw new \Exception("Error Processing Request", 1);
+        }
+
         $reservation->update([
             'checked_in_at' => now(),
         ]);
