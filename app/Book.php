@@ -12,9 +12,9 @@ class Book extends Model {
     }
 
     public function checkout($user) {
-        $this->reservation()->create([
-            'user_id'         => $user->id,
-            'checkout_out_at' => now(),
+        $this->reservations()->create([
+            'user_id'        => $user->id,
+            'checked_out_at' => now(),
         ]);
     }
 
@@ -24,7 +24,7 @@ class Book extends Model {
         ]))->id;
     }
 
-    public function reservation() {
+    public function reservations() {
         return $this->hasMany(Reservation::class);
     }
 }
