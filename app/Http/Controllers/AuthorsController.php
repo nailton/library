@@ -6,11 +6,13 @@ use App\Author;
 
 class AuthorsController extends Controller {
     public function store() {
-        $data = request()->validate([
+        Author::create($this->validateRequest());
+    }
+
+    protected function validateRequest() {
+        return request()->validate([
             'name' => 'required',
             'dob'  => 'required',
         ]);
-
-        Author::create($data);
     }
 }
