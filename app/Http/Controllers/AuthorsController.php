@@ -6,8 +6,11 @@ use App\Author;
 
 class AuthorsController extends Controller {
     public function store() {
-        Author::create(request()->only([
-            'name', 'dob',
-        ]));
+        $data = request()->validate([
+            'name' => 'required',
+            'dob'  => 'required',
+        ]);
+
+        Author::create($data);
     }
 }
